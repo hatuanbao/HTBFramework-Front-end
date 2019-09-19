@@ -22,7 +22,6 @@
               "src/assets",
               "src/favicon.ico",
               "src/favicon.png",
-              "src/static/abc.html",
               {
                 "glob": "**/*",
                 "input": "src/static/",
