@@ -66,8 +66,6 @@ $nb-themes: nb-register-theme((
   slide-out-shadow-color-rtl: 0 4px 14px 0 #8f9bb3,
 ), corporate, corporate);
 
-$nb-enable-css-custom-properties: true; // enable css custom property
-
 $nb-themes: nb-register-theme((
   layout-padding-top: 2.25rem,
 

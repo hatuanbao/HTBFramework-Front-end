@@ -10,5 +10,5 @@
 
 export const environment = {
   production: false,
-  backEndUrl: 'localhost:55393/',
+  backEndUrl: 'http://localhost:55393/',
 };
