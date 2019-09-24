@@ -4,10 +4,8 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class LogManagementService {
-  
   private getListfileUrl = environment.backEndUrl + 'api/log/get-list-file';
-  private downloadFileUrl = environment.backEndUrl + 'api/log/download';
-  private headers: any;
+  private downloadFileUrl = environment.backEndUrl + 'api/log/download?fileName=';
   constructor(private http: HttpClient) {
   }
 
@@ -17,20 +15,6 @@ export class LogManagementService {
   }
 
   downloadFile(fileName: string) {
-    window.open(this.downloadFile + fileName, '_blank');
+    window.location.assign(this.downloadFileUrl + fileName);
   }
-
-//   downloadFile(fileCode: string) {
-//     window.open(this.downLoadFileUrl + fileCode, '_blank');
-//   }
-
-//   deleteFile(fileCode: string) {
-//       return this.http.put(this.deleteFileUrl + fileCode, null, { headers: { 'Authorization': this.headers } });
-//   }
-
-//   uploadFile(fileUpload: File) {
-//     const formData = new FormData();
-//     formData.append(fileUpload.name, fileUpload);
-//     return this.http.post(this.uploadFileUrl, formData, { headers: { 'Authorization': this.headers } });
-//   }
 }

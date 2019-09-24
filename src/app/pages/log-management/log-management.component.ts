@@ -18,6 +18,7 @@ export class LogManagementComponent implements OnInit {
    // tslint:disable-next-line: max-line-length
    constructor(private http: HttpClient, private logManagementService: LogManagementService, private chRef: ChangeDetectorRef) {}
    ngOnInit() {
+    const component = this;
     this.logManagementService.getListFile()
        .subscribe((data: any[]) => {
          this.datas = data;
@@ -44,10 +45,11 @@ export class LogManagementComponent implements OnInit {
             ],
          });
        });
-   }
 
-   public onDownload(fileName: string) {
-       alert('a')
-    //    this.logManagementService.downloadFile(fileName);
+       // tslint:disable-next-line: ban
+       $(document).on('click', '.btn-download', function (){
+            const fileName = $(this).attr('data-file-name');
+            component.logManagementService.downloadFile(fileName);
+       });
    }
 }
