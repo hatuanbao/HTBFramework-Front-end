@@ -1,0 +1,17 @@
+<nb-card>
+        <nb-card-header><nb-icon icon="alert-circle" status="warning"></nb-icon> Thông báo</nb-card-header>
+        <nb-card-body>
+            Bạn có chắc chắn muốn xóa?
+        </nb-card-body>
+        <nb-card-footer>
+          <div class="row">
+              <div class="col-md-6">
+                <button fullWidth="true" class="cancel" nbButton status="danger" (click)="cancel()">Hủy</button>
+              </div>
+              <div class="col-md-6">
+                <button fullWidth="true" nbButton status="success" (click)="submit(true)">Xác nhận</button>
+              </div>
+          </div>
+        </nb-card-footer>
+</nb-card>
+      

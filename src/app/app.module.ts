@@ -1,3 +1,5 @@
+import { MyPopUpConfirmDeleteModule } from './shared/pop-up-confirm-delete/pop-up-confirm-delete.module';
+import { MyPopUpConfirmDeleteComponent } from './shared/pop-up-confirm-delete/pop-up-confirm-delete.component';
 /**
  * @license
  * Copyright Akveo. All Rights Reserved.
@@ -37,8 +39,12 @@ import {
     NbWindowModule.forRoot(),
     NbToastrModule.forRoot(),
     CoreModule.forRoot(),
+    MyPopUpConfirmDeleteModule,
   ],
   bootstrap: [AppComponent],
+  entryComponents: [
+    MyPopUpConfirmDeleteComponent,
+  ],
 })
 export class AppModule {
 }
