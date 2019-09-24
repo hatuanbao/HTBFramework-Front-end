@@ -4,6 +4,7 @@ import * as $ from 'jquery';
 import 'datatables.net';
 import 'datatables.net-bs4';
 import { HttpClient } from '@angular/common/http';
+import { NbIconLibraries } from '@nebular/theme';
 
 @Component({
     selector: 'ngx-log-management',
@@ -16,7 +17,11 @@ export class LogManagementComponent implements OnInit {
    datas: any[];
    dataTable: any;
    // tslint:disable-next-line: max-line-length
-   constructor(private http: HttpClient, private logManagementService: LogManagementService, private chRef: ChangeDetectorRef) {}
+   constructor(private http: HttpClient, private logManagementService: LogManagementService, private chRef: ChangeDetectorRef, private iconsLibrary: NbIconLibraries) {
+        iconsLibrary.registerFontPack('fa', { packClass: 'fa', iconClassPrefix: 'fa' });
+        iconsLibrary.registerFontPack('far', { packClass: 'far', iconClassPrefix: 'fa' });
+        iconsLibrary.registerFontPack('ion', { iconClassPrefix: 'ion' });
+   }
    ngOnInit() {
     const component = this;
     this.logManagementService.getListFile()
@@ -51,5 +56,11 @@ export class LogManagementComponent implements OnInit {
             const fileName = $(this).attr('data-file-name');
             component.logManagementService.downloadFile(fileName);
        });
+
+       // tslint:disable-next-line: ban
+       $(document).on('click', '.btn-delete', function (){
+        const fileName = $(this).attr('data-file-name');
+        // component.logManagementService.deleteFile(fileName);
+   });
    }
 }
