@@ -10,26 +10,30 @@
                     <nb-accordion style="margin-bottom: 10px;">
                         <nb-accordion-item #item>
                             <nb-accordion-item-header>
-                                Form lọc dữ liệu
+                                Tìm kiếm nâng cao
                             </nb-accordion-item-header>
                             <nb-accordion-item-body>
                                 <div class="row" style="font-size: 12px; margin-bottom: 10px">
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label class="label">Tên File</label>
-                                            <input fieldSize="small" type="text" nbInput fullWidth />
+                                            <input fieldSize="small" type="text" nbInput fullWidth [(ngModel)]="advancedSearch.fileName" />
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label class="label">Last Name</label>
-                                            <input fieldSize="small" type="text" nbInput fullWidth />
+                                            <label class="label">Ngày ghi log</label>
+                                            <input fieldSize="small" fullWidth nbInput [nbDatepicker]="rangepicker" [(ngModel)]="advancedSearch.dateRange">
+                                            <nb-rangepicker #rangepicker></nb-rangepicker>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="pull-right">
-                                    <button size="small" nbButton status="success" hero>
-                                        <nb-icon icon=""></nb-icon> Tìm kiếm
+                                <div class="buttons-row" style="float: right">
+                                    <button style="margin-right: 10px;" size="small" nbButton status="danger" hero (click)="onResetSearch()">
+                                        <nb-icon icon="close-round" pack="ion"></nb-icon> Đặt lại
+                                    </button>
+                                    <button size="small" nbButton status="success" hero (click)="onSearch()">
+                                        <nb-icon icon="search-outline"></nb-icon> Tìm kiếm
                                     </button>
                                 </div>
                             </nb-accordion-item-body>
@@ -58,12 +62,12 @@
                                 <td>{{item.length | ngxNumberWithDot}} kB</td>
                                 <td>{{item.lastModified | date:'dd/MM/yyyy HH:mm:ss'}}</td>
                                 <td>
-                                    <div class="buttons-row">
-                                        <button shape="rectangle" title="Download" size="tiny" nbButton status="success"
+                                    <div class="buttons-row" style="text-align: center;">
+                                        <button style="padding-top: 0px; padding-bottom: opx;" shape="rectangle" title="Download" size="tiny" nbButton status="success"
                                             ghost attr.data-file-name="{{item.name}}" (click)="onDownload(item.name)">
                                             <nb-icon icon="download-outline" success></nb-icon>
                                         </button>
-                                        <button shape="rectangle" title="Xóa" size="tiny" nbButton status="danger" ghost
+                                        <button style="padding-top: 0px; padding-bottom: opx;" shape="rectangle" title="Xóa" size="tiny" nbButton status="danger" ghost
                                             attr.data-file-name="{{item.name}}" (click)="onDelete(item.name)">
                                             <nb-icon icon="close-round" pack="ion"></nb-icon>
                                         </button>
