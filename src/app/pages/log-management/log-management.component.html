@@ -7,13 +7,49 @@
 
             <nb-card-body>
                 <div class="container">
+                    <nb-accordion style="margin-bottom: 10px;">
+                        <nb-accordion-item #item>
+                            <nb-accordion-item-header>
+                                Form lọc dữ liệu
+                            </nb-accordion-item-header>
+                            <nb-accordion-item-body>
+                                <div class="row" style="font-size: 12px; margin-bottom: 10px">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="label">Tên File</label>
+                                            <input fieldSize="small" type="text" nbInput fullWidth />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="label">Last Name</label>
+                                            <input fieldSize="small" type="text" nbInput fullWidth />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pull-right">
+                                    <button size="small" nbButton status="success" hero>
+                                        <nb-icon icon=""></nb-icon> Tìm kiếm
+                                    </button>
+                                </div>
+                            </nb-accordion-item-body>
+                        </nb-accordion-item>
+                    </nb-accordion>
+
                     <table class="table table-hover table-bordered" cellspacing="0">
                         <thead>
                             <tr>
-                                <th (click)="onSort('name')" style="width: 20%; cursor: pointer;">Tên File <span [ngClass]="{'sorting-arrow': true, 'asc' : sortByColumn == 'name'&&sortAscOrder, 'desc' : sortByColumn == 'name'&&!sortAscOrder}"></span></th>
-                                <th (click)="onSort('length')" style="width: 30%; cursor: pointer;">Dung lượng <span [ngClass]="{'sorting-arrow': true, 'asc' : sortByColumn == 'length'&&sortAscOrder, 'desc' : sortByColumn == 'length'&&!sortAscOrder}"></span></th>
-                                <th (click)="onSort('lastModified')" style="width: 30%; cursor: pointer;">Thay đổi lần cuối <span [ngClass]="{'sorting-arrow': true, 'asc' : sortByColumn == 'lastModified'&&sortAscOrder, 'desc' : sortByColumn == 'lastModified'&&!sortAscOrder}"></span></th>
-                                <th style="width: 20%"></th>
+                                <th (click)="onSort('name')" style="cursor: pointer;">Tên File <span
+                                        [ngClass]="{'sorting-arrow': true, 'asc' : sortByColumn == 'name'&&sortAscOrder, 'desc' : sortByColumn == 'name'&&!sortAscOrder}"></span>
+                                </th>
+                                <th (click)="onSort('length')" style="cursor: pointer;">Dung lượng <span
+                                        [ngClass]="{'sorting-arrow': true, 'asc' : sortByColumn == 'length'&&sortAscOrder, 'desc' : sortByColumn == 'length'&&!sortAscOrder}"></span>
+                                </th>
+                                <th (click)="onSort('lastModified')" style="cursor: pointer;">Thay đổi lần
+                                    cuối <span
+                                        [ngClass]="{'sorting-arrow': true, 'asc' : sortByColumn == 'lastModified'&&sortAscOrder, 'desc' : sortByColumn == 'lastModified'&&!sortAscOrder}"></span>
+                                </th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -23,10 +59,12 @@
                                 <td>{{item.lastModified | date:'dd/MM/yyyy HH:mm:ss'}}</td>
                                 <td>
                                     <div class="buttons-row">
-                                        <button shape="rectangle" title="Download" size="tiny" nbButton status="success" ghost attr.data-file-name="{{item.name}}" (click)="onDownload(item.name)">
+                                        <button shape="rectangle" title="Download" size="tiny" nbButton status="success"
+                                            ghost attr.data-file-name="{{item.name}}" (click)="onDownload(item.name)">
                                             <nb-icon icon="download-outline" success></nb-icon>
                                         </button>
-                                        <button shape="rectangle" title="Xóa" size="tiny" nbButton status="danger" ghost attr.data-file-name="{{item.name}}" (click)="onDelete(item.name)">
+                                        <button shape="rectangle" title="Xóa" size="tiny" nbButton status="danger" ghost
+                                            attr.data-file-name="{{item.name}}" (click)="onDelete(item.name)">
                                             <nb-icon icon="close-round" pack="ion"></nb-icon>
                                         </button>
                                     </div>

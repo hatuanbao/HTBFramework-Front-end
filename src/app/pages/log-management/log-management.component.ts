@@ -29,26 +29,28 @@ export class LogManagementComponent implements OnInit {
     }
 
     loadData() {
-        this.logManagementService.getListFile()
-           .subscribe((data: any[]) => {
-             this.datas = data;
-           });
+        // tslint:disable-next-line: max-line-length
+        this.datas = [{"length":33023,"name":"log-20190914 - Copy (2).txt","lastModified":"2019-09-24T07:03:17.9274403+00:00"},{"length":33023,"name":"log-20190914 - Copy (3).txt","lastModified":"2019-09-24T07:03:17.9274403+00:00"},{"length":33023,"name":"log-20190914 - Copy (4).txt","lastModified":"2019-09-24T07:03:17.9274403+00:00"},{"length":33023,"name":"log-20190914 - Copy (5).txt","lastModified":"2019-09-24T07:03:17.9274403+00:00"},{"length":33023,"name":"log-20190914 - Copy (6).txt","lastModified":"2019-09-24T07:03:17.9274403+00:00"},{"length":33023,"name":"log-20190914 - Copy (7).txt","lastModified":"2019-09-24T07:03:17.9274403+00:00"},{"length":33023,"name":"log-20190914 - Copy.txt","lastModified":"2019-09-24T07:03:17.9274403+00:00"},{"length":33023,"name":"log-20190914.txt","lastModified":"2019-09-24T07:03:17.9274403+00:00"},{"length":33023,"name":"log-20190917 - Copy (2).txt","lastModified":"2019-09-24T07:03:45.6674424+00:00"},{"length":33023,"name":"log-20190917 - Copy (3).txt","lastModified":"2019-09-24T07:03:45.6674424+00:00"},{"length":33023,"name":"log-20190917 - Copy (4).txt","lastModified":"2019-09-24T07:03:45.6674424+00:00"},{"length":33023,"name":"log-20190917 - Copy (5).txt","lastModified":"2019-09-24T07:03:45.6674424+00:00"},{"length":33023,"name":"log-20190917 - Copy (6).txt","lastModified":"2019-09-24T07:03:45.6674424+00:00"},{"length":33023,"name":"log-20190917 - Copy (7).txt","lastModified":"2019-09-24T07:03:45.6674424+00:00"},{"length":33023,"name":"log-20190917 - Copy.txt","lastModified":"2019-09-24T07:03:45.6674424+00:00"},{"length":33023,"name":"log-20190917.txt","lastModified":"2019-09-24T07:03:45.6674424+00:00"},{"length":6363,"name":"log-20190918 - Copy (2).txt","lastModified":"2019-09-18T02:50:26.471685+00:00"},{"length":6363,"name":"log-20190918 - Copy (3).txt","lastModified":"2019-09-18T02:50:26.471685+00:00"},{"length":6363,"name":"log-20190918 - Copy (4).txt","lastModified":"2019-09-18T02:50:26.471685+00:00"},{"length":6363,"name":"log-20190918 - Copy (5).txt","lastModified":"2019-09-18T02:50:26.471685+00:00"},{"length":6363,"name":"log-20190918 - Copy (6).txt","lastModified":"2019-09-18T02:50:26.471685+00:00"},{"length":6363,"name":"log-20190918 - Copy (7).txt","lastModified":"2019-09-18T02:50:26.471685+00:00"},{"length":6363,"name":"log-20190918 - Copy.txt","lastModified":"2019-09-18T02:50:26.471685+00:00"},{"length":6363,"name":"log-20190918.txt","lastModified":"2019-09-18T02:50:26.471685+00:00"},{"length":2257,"name":"log-20190919 - Copy (2).txt","lastModified":"2019-09-17T07:30:13.1999873+00:00"},{"length":2257,"name":"log-20190919 - Copy (3).txt","lastModified":"2019-09-17T07:30:13.1999873+00:00"},{"length":2257,"name":"log-20190919 - Copy (4).txt","lastModified":"2019-09-17T07:30:13.1999873+00:00"},{"length":2257,"name":"log-20190919 - Copy (5).txt","lastModified":"2019-09-17T07:30:13.1999873+00:00"},{"length":2257,"name":"log-20190919 - Copy (6).txt","lastModified":"2019-09-17T07:30:13.1999873+00:00"},{"length":2257,"name":"log-20190919 - Copy (7).txt","lastModified":"2019-09-17T07:30:13.1999873+00:00"},{"length":2257,"name":"log-20190919 - Copy.txt","lastModified":"2019-09-17T07:30:13.1999873+00:00"},{"length":2257,"name":"log-20190919.txt","lastModified":"2019-09-17T07:30:13.1999873+00:00"},{"length":356035,"name":"log-20190924 - Copy (2).txt","lastModified":"2019-09-24T07:04:03.3685234+00:00"},{"length":356035,"name":"log-20190924 - Copy (3).txt","lastModified":"2019-09-24T07:04:03.3685234+00:00"},{"length":356035,"name":"log-20190924 - Copy (4).txt","lastModified":"2019-09-24T07:04:03.3685234+00:00"},{"length":356035,"name":"log-20190924 - Copy (5).txt","lastModified":"2019-09-24T07:04:03.3685234+00:00"},{"length":356035,"name":"log-20190924 - Copy (6).txt","lastModified":"2019-09-24T07:04:03.3685234+00:00"},{"length":356035,"name":"log-20190924 - Copy (7).txt","lastModified":"2019-09-24T07:04:03.3685234+00:00"},{"length":356035,"name":"log-20190924 - Copy.txt","lastModified":"2019-09-24T07:04:03.3685234+00:00"},{"length":356035,"name":"log-20190924.txt","lastModified":"2019-09-24T07:04:03.3685234+00:00"},{"length":311105,"name":"log-20190926 - Copy (2).txt","lastModified":"2019-09-26T04:54:15.9276219+00:00"},{"length":311105,"name":"log-20190926 - Copy (3).txt","lastModified":"2019-09-26T04:54:15.9276219+00:00"},{"length":311105,"name":"log-20190926 - Copy (4).txt","lastModified":"2019-09-26T04:54:15.9276219+00:00"},{"length":311105,"name":"log-20190926 - Copy (5).txt","lastModified":"2019-09-26T04:54:15.9276219+00:00"},{"length":311105,"name":"log-20190926 - Copy (6).txt","lastModified":"2019-09-26T04:54:15.9276219+00:00"},{"length":311105,"name":"log-20190926 - Copy (7).txt","lastModified":"2019-09-26T04:54:15.9276219+00:00"},{"length":311105,"name":"log-20190926 - Copy.txt","lastModified":"2019-09-26T04:54:15.9276219+00:00"},{"length":311105,"name":"log-20190926.txt","lastModified":"2019-09-26T04:54:15.9276219+00:00"}];
+        // this.logManagementService.getListFile()
+        //    .subscribe((data: any[]) => {
+        //      this.datas = data;
+        //    });
     }
 
     onDownload(fileName: string) {
-        this.logManagementService.downloadFile(fileName);
+        // this.logManagementService.downloadFile(fileName);
     }
 
     onDelete(fileName: string) {
-        this.nbDialogService.open(MyPopUpConfirmDeleteComponent)
-            .onClose.subscribe(confirm => {
-                if (confirm) {
-                    const listFile = [fileName];
-                    this.logManagementService.deleteFile(listFile).subscribe(() => {
-                        this.loadData();
-                    });
-                }
-            });
+        // this.nbDialogService.open(MyPopUpConfirmDeleteComponent)
+        //     .onClose.subscribe(confirm => {
+        //         if (confirm) {
+        //             const listFile = [fileName];
+        //             this.logManagementService.deleteFile(listFile).subscribe(() => {
+        //                 this.loadData();
+        //             });
+        //         }
+        //     });
     }
 
     onSort(sortField: string) {
