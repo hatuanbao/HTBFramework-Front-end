@@ -7,26 +7,26 @@
 
             <nb-card-body>
                 <div class="container">
-                    <table id="table" class="table table-hover" cellspacing="0">
+                    <table class="table table-hover table-bordered" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Tên File</th>
-                                <th>Dung lượng</th>
-                                <th>Thay đổi lần cuối</th>
-                                <th></th>
+                                <th (click)="onSort('name')" style="width: 20%; cursor: pointer;">Tên File <span [ngClass]="{'sorting-arrow': true, 'asc' : sortByColumn == 'name'&&sortAscOrder, 'desc' : sortByColumn == 'name'&&!sortAscOrder}"></span></th>
+                                <th (click)="onSort('length')" style="width: 30%; cursor: pointer;">Dung lượng <span [ngClass]="{'sorting-arrow': true, 'asc' : sortByColumn == 'length'&&sortAscOrder, 'desc' : sortByColumn == 'length'&&!sortAscOrder}"></span></th>
+                                <th (click)="onSort('lastModified')" style="width: 30%; cursor: pointer;">Thay đổi lần cuối <span [ngClass]="{'sorting-arrow': true, 'asc' : sortByColumn == 'lastModified'&&sortAscOrder, 'desc' : sortByColumn == 'lastModified'&&!sortAscOrder}"></span></th>
+                                <th style="width: 20%"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let item of datas">
                                 <td>{{item.name}}</td>
                                 <td>{{item.length | ngxNumberWithDot}} kB</td>
-                                <td>{{item.lastModified | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+                                <td>{{item.lastModified | date:'dd/MM/yyyy HH:mm:ss'}}</td>
                                 <td>
-                                    <div class="buttons-row float-right">
-                                        <button shape="rectangle" title="Download" size="tiny" nbButton status="success" ghost class="btn-download" attr.data-file-name="{{item.name}}">
+                                    <div class="buttons-row">
+                                        <button shape="rectangle" title="Download" size="tiny" nbButton status="success" ghost attr.data-file-name="{{item.name}}" (click)="onDownload(item.name)">
                                             <nb-icon icon="download-outline" success></nb-icon>
                                         </button>
-                                        <button title="Xóa" size="tiny" nbButton status="danger" ghost class="btn-delete" attr.data-file-name="{{item.name}}">
+                                        <button shape="rectangle" title="Xóa" size="tiny" nbButton status="danger" ghost attr.data-file-name="{{item.name}}" (click)="onDelete(item.name)">
                                             <nb-icon icon="close-round" pack="ion"></nb-icon>
                                         </button>
                                     </div>
